@@ -96,7 +96,7 @@ export default function CommandList({}: Props) {
 					<path
 						d="M0 0h656v108H0V0zm0 0h350v12H0V0zm20 32h238v12H20V32zM0 32h12v12H0V32zm0 32h540v12H0V64zm0 32h470v12H0V96z"
 						fill="currentColor"
-						fill-rule="evenodd"
+						fillRule="evenodd"
 					></path>
 				</svg>
 			</div>
