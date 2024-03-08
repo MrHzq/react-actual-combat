@@ -1,12 +1,5 @@
-import React, {
-	FC,
-	MouseEventHandler,
-	useEffect,
-	useRef,
-	useState,
-} from "react";
-import { mockList } from "./mock";
-import { useRefInsObsEffect } from "./useRefInsObsEffect";
+import React, { FC, MouseEventHandler, useRef, useState } from "react";
+import { useRefInsObsState } from "./useRefInsObsState";
 
 type Props = {};
 
@@ -83,33 +76,30 @@ const CommandData: FC<ICommandItem> = ({ item }) => {
 	);
 };
 
-const fetchList = () =>
-	new Promise<Array<any>>((resolve) => {
-		setTimeout(() => {
-			resolve(mockList.slice(5, 10));
-		}, 500);
-	});
-
 export default function CommandList({}: Props) {
-	const [list, setList] = useState(mockList.slice(0, 5));
-
 	const scrollRef = useRef<HTMLDivElement>(null);
 
-	useRefInsObsEffect((isIntersecting) => {
-		if (isIntersecting) {
-			// 加载更多数据
-			fetchList().then((res: Array<any>) => {
-				setList((list) => [...list, ...res]);
-			});
-		}
-	}, scrollRef);
+	const list = useRefInsObsState(scrollRef);
 
 	return (
 		<div className=" flex flex-col border-t">
 			{list.map((item, idx) => (
 				<CommandData key={item.id + idx} item={item} />
 			))}
-			<div ref={scrollRef}>loading......</div>
+			<div ref={scrollRef} className=" h-auto">
+				<svg
+					width="656"
+					height="108"
+					viewBox="0 0 656 108"
+					className="w-full text-gray-100"
+				>
+					<path
+						d="M0 0h656v108H0V0zm0 0h350v12H0V0zm20 32h238v12H20V32zM0 32h12v12H0V32zm0 32h540v12H0V64zm0 32h470v12H0V96z"
+						fill="currentColor"
+						fill-rule="evenodd"
+					></path>
+				</svg>
+			</div>
 		</div>
 	);
 }
