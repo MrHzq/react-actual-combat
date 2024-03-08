@@ -49,7 +49,7 @@ const CommandData: FC<ICommandItem> = ({ item }) => {
 						className="
                         flex justify-center items-center h-8 px-4 bg-blue-100 text-sm text-blue-600 rounded-sm  cursor-pointer hover:bg-blue-200 transition-all"
 					>
-						赞同 9762
+						赞同 {item?.target?.thanks_count || 0}
 					</div>
 					<div className=" flex justify-center items-center h-8 px-4 bg-blue-100 text-sm text-blue-600 rounded-sm  cursor-pointer hover:bg-blue-200 transition-all ml-2">
 						踩
