@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet, RouteObject } from "react-router-dom";
+import Home from "../pages/home";
 
 // 自己扩展的类型
 export interface extraBizObject {
@@ -11,29 +12,7 @@ export const router: Array<RouteObject & extraBizObject> = [
 	// https://www.zhihu.com/
 	{
 		path: "/",
-		element: (
-			<div>
-				<div className="flex gap-4 text-blue-500	underline">
-					<a href="">首页</a>
-					<a href="#education">知乎知学堂</a>
-					<a href="#explore">发现</a>
-					<a href="#question">等你来答</a>
-				</div>
-				<div>
-					首页自身内容
-					<div>
-						<div className="flex gap-4 text-blue-500	underline">
-							<a href="#command">command</a>
-							<a href="#follow">follow</a>
-							<a href="#hot">hot</a>
-							<a href="#zvideo">zvideo</a>
-						</div>
-						首页二级菜单内容
-						<Outlet />
-					</div>
-				</div>
-			</div>
-		),
+		element: <Home />,
 		title: "首页",
 		isShow: true,
 		children: [
