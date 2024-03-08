@@ -1,6 +1,7 @@
 import React from "react";
 import { RouteObject } from "react-router-dom";
 import Home from "../pages/home";
+import CommandList from "../pages/home/commandList";
 
 // 自己扩展的类型
 export interface extraBizObject {
@@ -20,7 +21,7 @@ export const router: ZHRouter = [
 		children: [
 			{
 				path: "/",
-				element: <div>command</div>,
+				element: <CommandList />,
 			},
 
 			{
