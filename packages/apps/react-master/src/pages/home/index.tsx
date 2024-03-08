@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "../../components/navigation";
 import Card from "../../components/card";
 import Tabs from "./tabs";
@@ -6,12 +6,17 @@ import Tabs from "./tabs";
 type Props = {};
 
 export default function Home({}: Props) {
+	const [hide, setHide] = useState(true);
+
+	const handleChange = (flag: boolean) => {
+		setHide(flag);
+	};
 	return (
 		<div>
-			<Navigation />
+			<Navigation className=" sticky top-0" hide={hide} />
 			<div className=" mx-auto max-w-6xl flex my-2 px-20">
 				<Card className=" w-2/3">
-					<Tabs />
+					<Tabs onChange={handleChange} />
 				</Card>
 				<div className=" flex-1 w-1/3">
 					<Card className=" w-full">创作中心</Card>

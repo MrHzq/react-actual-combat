@@ -3,8 +3,7 @@ import { ZHRouter, router } from "../../router";
 import { BellIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 import Search from "../search";
-
-type Props = {};
+import { Tab } from "../../pages/home/tabs";
 
 const Logo = () => {
 	return (
@@ -69,17 +68,38 @@ const MenuAlarm = () => (
 	</div>
 );
 
-export default function Navigation({}: Props) {
+type Props = {
+	className: string;
+	hide: boolean;
+};
+
+export default function Navigation({ className, hide }: Props) {
 	return (
-		<div className=" bg-white w-screen shadow-lg">
+		<div
+			className={` bg-white w-screen shadow-lg overflow-hidden ${className}`}
+		>
 			<div className=" max-w-6xl mx-auto my-0 flex justify-center w-full">
-				<div className=" h-14 flex justify-between items-center min-w-max w-full">
-					<div className=" flex items-center">
-						<Logo />
-						<NavTab navs={router} />
+				<div
+					className={` relative h-14 flex flex-col justify-between items-center min-w-max w-full transition-all duration-300 ${hide ? "top-0" : "-top-14"}`}
+				>
+					{/* 未吸顶时展示这个 */}
+					<div className=" w-full h-14 flex justify-between items-center min-w-max">
+						<div className=" flex items-center">
+							<Logo />
+							<NavTab navs={router} />
+						</div>
+						<Search />
+						<MenuAlarm />
 					</div>
-					<Search />
-					<MenuAlarm />
+
+					{/* 吸顶时展示这个 */}
+					<div className=" w-full h-14 flex justify-between items-center min-w-max">
+						<div className=" flex items-center">
+							<Logo />
+							<Tab activeStyle="border-b-4 border-blue-600" />
+						</div>
+						<Search />
+					</div>
 				</div>
 			</div>
 		</div>
