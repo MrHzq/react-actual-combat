@@ -6,6 +6,7 @@ import React, {
 	useState,
 } from "react";
 import { mockList } from "./mock";
+import { useRefInsObsEffect } from "./useRefInsObsEffect";
 
 type Props = {};
 
@@ -94,29 +95,14 @@ export default function CommandList({}: Props) {
 
 	const scrollRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		let intersectionObserver: IntersectionObserver | undefined =
-			new IntersectionObserver((entries) => {
-				// 这个函数执行时，拿不到最新的 list
-				const isIntersecting = entries[0]?.isIntersecting;
-
-				if (isIntersecting) {
-					// 加载更多数据
-					fetchList().then((res: Array<any>) => {
-						setList((list) => [...list, ...res]);
-
-						// setList([...list, ...res]); 这样写，list 不会更新
-					});
-				}
+	useRefInsObsEffect((isIntersecting) => {
+		if (isIntersecting) {
+			// 加载更多数据
+			fetchList().then((res: Array<any>) => {
+				setList((list) => [...list, ...res]);
 			});
-
-		scrollRef.current && intersectionObserver.observe(scrollRef.current);
-
-		return () => {
-			scrollRef.current && intersectionObserver!.unobserve(scrollRef.current);
-			intersectionObserver = void 0;
-		};
-	}, []);
+		}
+	}, scrollRef);
 
 	return (
 		<div className=" flex flex-col border-t">
