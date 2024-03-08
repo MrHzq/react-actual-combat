@@ -91,6 +91,29 @@ module.exports = function (isDev) {
 						},
 					],
 				},
+
+				// webpack5 以前要单独的 loader(file|url 等)，webpack5 已经内置了
+				{
+					// 图片处理
+					test: /\.(png|jpg|jpeg|gif|svg)$/,
+					generator: {
+						filename: "static/images/[name].[contenthash:8][ext]",
+					},
+				},
+				{
+					// 字体处理
+					test: /\.(woff2?|eot|ttf|otf)$/,
+					generator: {
+						filename: "static/fonts/[name].[contenthash:8][ext]",
+					},
+				},
+				{
+					// 音视频处理
+					test: /\.(mp4|map3|flv|wav)$/,
+					generator: {
+						filename: "static/media/[name].[contenthash:8][ext]",
+					},
+				},
 			],
 		},
 
@@ -102,7 +125,10 @@ module.exports = function (isDev) {
 				// 自动注入打包后的 js、css 文件
 				inject: true,
 			}),
+
+			// 由于生产环境使用 MiniCssExtractPlugin.loader 单独提取成 css 文件，所以需要加对应的 plugin 配置
 			new MiniCssExtractPlugin({
+				// 提取后的文件名 开发环境文件名不带 hash，生产环境文件名带 hash
 				filename: isDev
 					? "static/css/[name].css"
 					: "static/css/[name].[contenthash:4].css",
