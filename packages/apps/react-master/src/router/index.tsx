@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, RouteObject } from "react-router-dom";
+import { RouteObject } from "react-router-dom";
 import Home from "../pages/home";
 
 // 自己扩展的类型
@@ -8,7 +8,9 @@ export interface extraBizObject {
 	isShow?: boolean; // 是否显示
 }
 
-export const router: Array<RouteObject & extraBizObject> = [
+export type ZHRouter = Array<RouteObject & extraBizObject>;
+
+export const router: ZHRouter = [
 	// https://www.zhihu.com/
 	{
 		path: "/",
