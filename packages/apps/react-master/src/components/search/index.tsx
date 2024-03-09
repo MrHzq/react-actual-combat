@@ -6,6 +6,8 @@ import React, {
 	useRef,
 	useState,
 } from "react";
+
+import { Button } from "@hzq/react-x-components";
 import { localStore } from "../../utils/store/index.js";
 
 type Props = {};
@@ -128,12 +130,7 @@ export default function Search({}: Props) {
 					className=" w-98 h-8 border border-gray-100 px-4 rounded-full bg-gray-50"
 					placeholder="福建软考报名入口"
 				/>
-				<button
-					className=" w-16 h-8 mx-4 text-sm bg-blue-500 text-white flex justify-center items-center rounded-full hover:bg-blue-800 transition-all"
-					onClick={handleSearchBtnClick}
-				>
-					提问
-				</button>
+				<Button onClick={handleSearchBtnClick}>提问111</Button>
 			</div>
 			{relatedList?.length && isShow ? (
 				<div
