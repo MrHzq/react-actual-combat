@@ -112,6 +112,8 @@ module.exports = [
 					"@": path.resolve(__dirname, "../src"),
 				},
 			}),
+
+			terser(), // 开启 ts 压缩
 		],
 	},
 ];
