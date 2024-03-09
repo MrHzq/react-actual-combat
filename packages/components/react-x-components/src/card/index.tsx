@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 type Props = {
 	className?: string;
-	children?: ReactNode;
+	children?: React.ReactNode;
 };
 
 export default function Card({ className, children }: Props) {
