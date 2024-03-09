@@ -5,7 +5,8 @@
   "main": "esm/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup --config ./scripts/rollup.config.js"
+    "build": "rollup --config ./scripts/rollup.config.js",
+    "dev": "rollup --config ./scripts/rollup.config.js -w"
   },
   "keywords": [],
   "author": "",
