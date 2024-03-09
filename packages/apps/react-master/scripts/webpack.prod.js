@@ -5,6 +5,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const baseConfig = require("./webpack.base");
+const { ZipPlugin } = require("../zipPlugin");
 
 // 基于 webpack 的官方 merge 方法，将 baseConfig 和 prodConfig 合并
 module.exports = merge(baseConfig(), {
@@ -50,4 +51,6 @@ module.exports = merge(baseConfig(), {
 			},
 		},
 	},
+
+	plugins: [new ZipPlugin()],
 });
