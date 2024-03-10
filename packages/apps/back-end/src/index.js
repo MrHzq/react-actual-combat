@@ -5,6 +5,7 @@ import Router from "koa-router";
 import Routers from "./controllers/index"; // 导入 controllers 作为路由
 
 import { controllers } from "./utils/decorator.js"; // 导入 controllers，里面有具体的 method, path, handler
+import { jwtVerify } from "./utils/jwt.js";
 
 const app = new Koa();
 
@@ -24,7 +25,12 @@ app.use(async (ctx, next) => {
 	} else await next();
 });
 
+// 使用 jwt 验证中间件
+app.use(jwtVerify(["/", "/api/user/login", "/api/user/register"]));
+
 const router = new Router();
+
+const API_PREFIX = "/api";
 
 const allPath = [];
 
@@ -39,9 +45,11 @@ Routers.forEach((route) => {
 
 	if (prefix) path = prefix + path;
 
-	allPath.push({ method, path });
+	const finalPath = API_PREFIX + path;
 
-	router[method](path, handler);
+	allPath.push({ method, path: finalPath });
+
+	router[method](finalPath, handler);
 });
 
 router.get("/", async (ctx) => {
