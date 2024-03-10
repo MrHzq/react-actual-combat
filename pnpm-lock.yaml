@@ -72,6 +72,7 @@ importers:
       jszip: ^3.10.1
       less: ^4.2.0
       less-loader: ^12.2.0
+      lodash: ^4.17.21
       mini-css-extract-plugin: ^2.8.1
       postcss: ^8.4.35
       postcss-loader: ^8.1.1
@@ -95,6 +96,7 @@ importers:
       '@types/react': 18.2.64
       '@types/react-dom': 18.2.21
       '@types/react-router-dom': 5.3.3
+      lodash: 4.17.21
       postcss-nested: 6.0.1_postcss@8.4.35
       postcss-nesting: 10.2.0_postcss@8.4.35
       react: 18.2.0
@@ -5385,7 +5387,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
