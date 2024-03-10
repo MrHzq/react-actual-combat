@@ -4,6 +4,10 @@ import { Controller, RequestMapping, RequestMethod } from "../utils/decorator";
 export default class BookController {
 	@RequestMapping(RequestMethod.GET, "/all")
 	async getAll(ctx) {
-		ctx.body = ["1", "2"];
+		ctx.body = {
+			code: 200,
+			msg: "success",
+			data: ["1", "2"],
+		};
 	}
 }
