@@ -1,6 +1,7 @@
 import Koa from "koa";
 
 import Router from "koa-router";
+import bodyParser from "koa-bodyparser";
 
 import Routers from "./controllers/index"; // 导入 controllers 作为路由
 
@@ -8,6 +9,8 @@ import { controllers } from "./utils/decorator.js"; // 导入 controllers，里�
 import { jwtVerify } from "./utils/jwt.js";
 
 const app = new Koa();
+
+app.use(bodyParser());
 
 app.use(async (ctx, next) => {
 	ctx.set("Acess-Control-Allow-Origin", "*"); // 允许与给定的来源（origin）共享。
