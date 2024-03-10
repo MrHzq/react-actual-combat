@@ -1,5 +1,12 @@
-import React, { FC, MouseEventHandler, useRef, useState } from "react";
+import React, {
+	FC,
+	MouseEventHandler,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 import { useRefInsObsState } from "./useRefInsObsState";
+import { sendLog } from "../../../utils/lib/apis";
 
 type Props = {};
 
@@ -14,6 +21,10 @@ const CommandData: FC<ICommandItem> = ({ item }) => {
 		event.preventDefault();
 		setSelected(!selected);
 	};
+
+	useEffect(() => {
+		sendLog({ msg: item?.target?.question?.title || item?.target?.title });
+	}, []);
 
 	return (
 		<div className=" flex flex-col items-start p-4 border-b">
