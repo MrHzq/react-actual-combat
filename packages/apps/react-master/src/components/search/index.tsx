@@ -106,6 +106,8 @@ export default function Search({}: Props) {
 	const handleSearchBtnClick = () => {
 		const currentValue = inputValue || inputRef.current?.placeholder;
 
+		console.log("[ currentValue ] >", currentValue);
+
 		// 将值放到输入框内
 		setInputValue(currentValue!);
 

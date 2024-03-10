@@ -19,7 +19,7 @@ const CommandData: FC<ICommandItem> = ({ item }) => {
 		<div className=" flex flex-col items-start p-4 border-b">
 			{/* 标题部分 */}
 			<div className=" flex h-auto">
-				<a className=" font-bold text-lg leading-10">
+				<a className=" font-bold text-lg leading-10 text-black">
 					{item?.target?.question?.title || item?.target?.title}
 				</a>
 			</div>
