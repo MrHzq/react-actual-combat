@@ -1,3 +1,4 @@
 import BookController from "./book.js";
+import UserController from "./user.js";
 
-export default [BookController];
+export default [BookController, UserController];
