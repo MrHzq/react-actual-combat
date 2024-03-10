@@ -28,6 +28,9 @@ importers:
       '@headlessui/react': ^1.7.18
       '@heroicons/react': ^2.1.1
       '@hzq/react-x-components': workspace:^1.0.0
+      '@locator/babel-jsx': ^0.4.3
+      '@locator/runtime': ^0.4.3
+      '@types/node': ^20.11.25
       '@types/react': ^18.2.64
       '@types/react-dom': ^18.2.21
       '@types/react-router-dom': ^5.3.3
@@ -70,6 +73,9 @@ importers:
       '@babel/preset-env': 7.24.0_@babel+core@7.24.0
       '@babel/preset-react': 7.23.3_@babel+core@7.24.0
       '@babel/preset-typescript': 7.23.3_@babel+core@7.24.0
+      '@locator/babel-jsx': 0.4.3_@babel+core@7.24.0
+      '@locator/runtime': 0.4.3
+      '@types/node': 20.11.25
       autoprefixer: 10.4.18_postcss@8.4.35
       babel-loader: 9.1.3_eebutw37jttb3qk2da6gfegf7q
       cross-env: 7.0.3
@@ -1464,6 +1470,23 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
+  /@floating-ui/core/1.6.0:
+    resolution: {integrity: sha512-PcF++MykgmTj3CIyOQbKA/hDzOAiqI3mhuoN44WRCopIs1sgoDoU4oty4Jtqaj/y3oDU6fnVSm4QG0a3t5i0+g==}
+    dependencies:
+      '@floating-ui/utils': 0.2.1
+    dev: true
+
+  /@floating-ui/dom/1.6.3:
+    resolution: {integrity: sha512-RnDthu3mzPlQ31Ss/BTwQ1zjzIhr3lk1gZB1OC56h/1vEtaXkESrOqL5fQVMfXpwGtRwX+YsZBdyHtJMQnkArw==}
+    dependencies:
+      '@floating-ui/core': 1.6.0
+      '@floating-ui/utils': 0.2.1
+    dev: true
+
+  /@floating-ui/utils/0.2.1:
+    resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+    dev: true
+
   /@gar/promisify/1.1.3:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: true
@@ -1579,6 +1602,41 @@ packages:
 
   /@leichtgewicht/ip-codec/2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
+    dev: true
+
+  /@locator/babel-jsx/0.4.3_@babel+core@7.24.0:
+    resolution: {integrity: sha512-fHcpYE3HlrfNpQoQrqD+Um7zeCUYXMU0Dh1IzMrjJeIhv43bXBrRtjarEDXJ/kTMCzfHTTcI36mFVzNkbn60sQ==}
+    dependencies:
+      '@babel/parser': 7.24.0
+      '@babel/plugin-syntax-jsx': 7.23.3_@babel+core@7.24.0
+      '@babel/preset-env': 7.24.0_@babel+core@7.24.0
+      '@babel/preset-react': 7.23.3_@babel+core@7.24.0
+      '@babel/preset-typescript': 7.23.3_@babel+core@7.24.0
+      '@babel/traverse': 7.24.0
+      '@babel/types': 7.24.0
+      '@locator/runtime': 0.4.3
+      '@locator/shared': 0.4.3
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+      - ts-node
+    dev: true
+
+  /@locator/runtime/0.4.3:
+    resolution: {integrity: sha512-4qzPUnQE3ePmqQpXdM3hk2nhYXLsyh8dN8Myf0GbxsbDULqs5XOJexkWzyT2h/boxz2pEBpepVm1wBWwCKEU4A==}
+    dependencies:
+      '@floating-ui/dom': 1.6.3
+      '@locator/shared': 0.4.3
+      solid-js: 1.8.15
+      tailwindcss: 3.4.1
+    transitivePeerDependencies:
+      - ts-node
+    dev: true
+
+  /@locator/shared/0.4.3:
+    resolution: {integrity: sha512-Sf++c0IpLgzt6J1Aqnvaoy3ALGrga99vYMUu+Xs/yFXmf2iNqjGKkm259ZgjB+4m47TQTqTEK2LKFz6BBkR+Jw==}
+    dependencies:
+      semver: 7.6.0
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -7181,6 +7239,20 @@ packages:
       randombytes: 2.1.0
     dev: true
 
+  /seroval-plugins/1.0.4_seroval@1.0.4:
+    resolution: {integrity: sha512-DQ2IK6oQVvy8k+c2V5x5YCtUa/GGGsUwUBNN9UqohrZ0rWdUapBFpNMYP1bCyRHoxOJjdKGl+dieacFIpU/i1A==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      seroval: ^1.0
+    dependencies:
+      seroval: 1.0.4
+    dev: true
+
+  /seroval/1.0.4:
+    resolution: {integrity: sha512-qQs/N+KfJu83rmszFQaTxcoJoPn6KNUruX4KmnmyD0oZkUoiNvJ1rpdYKDf4YHM05k+HOgCxa3yvf15QbVijGg==}
+    engines: {node: '>=10'}
+    dev: true
+
   /serve-index/1.9.1:
     resolution: {integrity: sha512-pXHfKNP4qujrtteMrSBb0rc8HJ9Ms/GrXwcUtUtD5s4ewDJI8bT3Cz2zTVRMKtri49pLx2e0Ya8ziP5Ya2pZZw==}
     engines: {node: '>= 0.8.0'}
@@ -7332,6 +7404,14 @@ packages:
     dependencies:
       ip-address: 9.0.5
       smart-buffer: 4.2.0
+    dev: true
+
+  /solid-js/1.8.15:
+    resolution: {integrity: sha512-d0QP/efr3UVcwGgWVPveQQ0IHOH6iU7yUhc2piy8arNG8wxKmvUy1kFxyF8owpmfCWGB87usDKMaVnsNYZm+Vw==}
+    dependencies:
+      csstype: 3.1.3
+      seroval: 1.0.4
+      seroval-plugins: 1.0.4_seroval@1.0.4
     dev: true
 
   /source-map-js/1.0.2:

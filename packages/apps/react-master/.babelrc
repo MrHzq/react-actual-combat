@@ -3,5 +3,13 @@
 		"@babel/preset-react", // 解析 react
 		"@babel/preset-typescript" // 解析 typescript
 	],
-	"plugins": ["./consolePlugin.js"]
+	"plugins": [
+		"./consolePlugin.js",
+		[
+			"@locator/babel-jsx/dist",
+			{
+				"env": "development"
+			}
+		]
+	]
 }
