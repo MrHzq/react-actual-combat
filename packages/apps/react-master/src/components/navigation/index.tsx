@@ -1,9 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { ZHRouter, router } from "../../router";
 import { BellIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 import Search from "../search";
 import { Tab } from "../../pages/home/tabs";
+import { Switch } from "@headlessui/react";
 
 const Logo = () => {
 	return (
@@ -68,6 +69,40 @@ const MenuAlarm = () => (
 	</div>
 );
 
+const ThemeChange = () => {
+	const [theme, setTheme] = useState<string>("light");
+
+	const [enabled, setEnabled] = useState(false);
+
+	const handleChange = (checked: boolean) => {
+		if (theme === "light") {
+			setTheme("dark");
+			document.documentElement.setAttribute("data-theme", "dark");
+		} else {
+			setTheme("light");
+			document.documentElement.setAttribute("data-theme", "light");
+		}
+		setEnabled(checked);
+	};
+
+	return (
+		<Switch
+			checked={enabled}
+			onChange={handleChange}
+			className={`${
+				enabled ? "bg-blue-600" : "bg-gray-200"
+			} relative inline-flex h-6 w-11 items-center rounded-full`}
+		>
+			<span className="sr-only">Enable notifications</span>
+			<span
+				className={`${
+					enabled ? "translate-x-6" : "translate-x-1"
+				} inline-block h-4 w-4 transform rounded-full bg-white transition`}
+			/>
+		</Switch>
+	);
+};
+
 type Props = {
 	className: string;
 	hide: boolean;
@@ -90,6 +125,7 @@ export default function Navigation({ className, hide }: Props) {
 						</div>
 						<Search />
 						<MenuAlarm />
+						<ThemeChange />
 					</div>
 
 					{/* 吸顶时展示这个 */}
