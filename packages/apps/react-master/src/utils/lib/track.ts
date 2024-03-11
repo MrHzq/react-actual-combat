@@ -45,7 +45,7 @@ export class BaseTrack extends AsyncTrackQueue<TrackQueue> {
 			const image = new Image();
 			image.src = "http://localhost:3001/track?data=" + JSON.stringify(data);
 
-			console.log("[ data ] >", data);
+			console.log("[ comsumeTaskQuene data ] >", data);
 
 			image.onload = () => {
 				resolve(true);
